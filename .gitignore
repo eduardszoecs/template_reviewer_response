@@ -1,0 +1,19 @@
+# Latex
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+
+# bibtex
+*.bbl
+*.blg
+
+# build-tools
+*.fdb_latexmk
+*.synctex.gz
+
+# other
+.directory

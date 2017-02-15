@@ -1,0 +1,158 @@
+% ======================================================= %
+% Document: TEMPLATE FOR RESPONSES TO REVIEWERS
+% Author: Andrea Ballatore
+% Date: Jan 7, 2013
+% Source: https://raw.githubusercontent.com/ucd-spatial/Datasets/master/tex_response_to_reviewers_template/responses_to_reviewers.tex
+%
+% Modified by Eduard Szöcs, 15.02.2017
+% ======================================================= %
+\documentclass[12pt]{article}
+
+% packages
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{color}
+\usepackage[utf8]{inputenc}
+\usepackage[onehalfspacing]{setspace}
+\usepackage[
+	round,	%(defaultage in the main file and \input ) for round parentheses;
+	colon,	% (default) to separate multiple citations with colons;
+	authoryear,% (default) for author-year citations;
+	sort,		% orders multiple citations into the sequence in which they 
+]{natbib}					
+\usepackage[
+	]{todonotes}
+\usepackage{pdfpages}
+\usepackage{anysize}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+
+
+% Change margins
+\marginsize{2.5cm}{2.5cm}{1.5cm}{2.5cm}
+
+% colors
+\definecolor{darkred}{rgb}{1,.6,.6}
+\definecolor{mygray}{gray}{0.6}
+
+% macros
+% add a counter
+\newcounter{cN}
+\setcounter{cN}{0}
+
+\newcommand{\comm}[1]{
+	\vspace{2em} 
+	\refstepcounter{cN} % incrment counter
+	\noindent \hangindent=0em \textbf{\textcolor{Maroon}{\uline{Comment \thecN}:~}}\emph{"#1"}
+	}
+
+\newcommand{\resp}[1]{
+	\\[0.25em] 
+	\hangindent=2.3em \textbf{\textcolor{NavyBlue}{\uline{Response}:~}}#1 
+	}
+
+
+\DeclareRobustCommand\problemline{\bgroup\markoverwith{\textcolor{darkred}{\rule[-0.9ex]{4pt}{3pt}}}\ULon}
+\DeclareRobustCommand{\problem}[1]{\problemline{#1}} % soul
+\setcounter{secnumdepth}{-1}
+
+% indicate sections tofill
+\newcommand{\tofill}[1]{\colorbox{green}{\textsc\texttt{$<#1>$}}}
+
+% sample bibliography
+\usepackage{filecontents}
+\begin{filecontents*}{references.bib}
+@article{c1,
+   author  = {Author},
+   title   = {{Title}},
+   journal = {Journal},
+   year    = {1999},
+   volume  = {1},
+   pages   = {1--10}
+}
+\end{filecontents*}
+
+
+
+
+\begin{document}
+% ======================================================= %
+\title{Resubmission of\\~\\\tofill{Manuscript ID}: \tofill{Title}}
+
+\author{\tofill{Author1}, \tofill{Author2}}
+\date{\today}
+
+\maketitle
+% ======================================================= %
+\noindent Dear editor \tofill{Editor Name} and reviewers,\\
+
+\noindent
+We are thankful for reviewing our manuscript and the comments that helped to improve the paper.
+We revised the manuscript according to comments of the \tofill{No. reviews}  reviewers
+and are re-submitting the manuscript for consideration for publication in \tofill{Journal}.
+
+\noindent
+\tofill{More Text.}
+
+\noindent
+To assist the assessment of our changes we have submitted two versions of the revised manuscript: one with highlighted changes and another without
+any highlighting. 
+Note, that we did not highlight changes in the supplemental materials, equations, references and title and did not include any figures in this version.
+
+
+\vspace{2em}
+\hfill Kind regards,
+
+\hfill \tofill{Author1}, \tofill{Author2}
+\newpage
+
+
+% ======================================================= %
+\tableofcontents
+
+
+% ======================================================= %
+
+\section{Technical corrections}
+
+We are thankful for checking the technical correctness of the submitted manuscript.
+
+
+\comm{\tofill{Comment}}
+\resp{\tofill{Response~\citep{c1}}}
+
+
+
+% ======================================================= %
+\section{Response to reviewer 1}
+
+\comm{\tofill{Comment}}
+\resp{\tofill{Response}}
+
+
+% ======================================================= %
+\section{Response to reviewer 2}
+
+\comm{\tofill{Comment}}
+\resp{\tofill{Response}}
+
+
+% --------------------------------
+\newpage
+
+\bibliographystyle{spbasic}
+\bibliography{references}
+
+
+
+% ----------------------------------
+% Add diff
+\section{Manuscript with highlighted changes}
+\colorbox{green}{\textsc\texttt{Include PDF created with \texttt{latexdiff}.}}
+
+% \includepdf[pages=-]{/diff/diff.pdf}
+
+% ======================================================= %
+\end{document}
+% ======================================================= % 
